@@ -183,12 +183,13 @@ public class ImageViewer
             int height = currentImage.getHeight() / 2;
             OFImage newImage = new OFImage(width, height);
 
-            // copy pixel data into new image
+            // copy pixel data into new image (top-left)
             for(int y = 0; y < height; y++) {
                 for(int x = 0; x < width; x++) {
                     newImage.setPixel(x, y, currentImage.getPixel(x * 2, y * 2));
                 }
             }
+            
             
             currentImage = newImage;
             imagePanel.setImage(currentImage);
@@ -256,6 +257,9 @@ public class ImageViewer
         filterList.add(new EdgeFilter("Edge Detection"));
         filterList.add(new FishEyeFilter("Fish Eye"));
         filterList.add(new RedChannel("RedChannel"));
+        filterList.add(new GreenChannel("GreenChannel"));
+        filterList.add(new BlueChannel("BlueChannel"));
+        filterList.add(new WarholFilter("WarholFilter"));
        
         return filterList;
     }
