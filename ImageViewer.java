@@ -260,6 +260,9 @@ public class ImageViewer
         filterList.add(new GreenChannel("GreenChannel"));
         filterList.add(new BlueChannel("BlueChannel"));
         filterList.add(new WarholFilter("WarholFilter"));
+        filterList.add(new RedFilter("RedFilter"));
+        filterList.add(new BlueFilter("BlueFilter"));
+        filterList.add(new GreenFilter("GreenFilter"));
        
         return filterList;
     }
