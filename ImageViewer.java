@@ -190,7 +190,6 @@ public class ImageViewer
                 }
             }
             
-            
             currentImage = newImage;
             imagePanel.setImage(currentImage);
             frame.pack();

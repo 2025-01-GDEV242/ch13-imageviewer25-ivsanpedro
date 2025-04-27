@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.awt.image.BufferedImage;
 /**
  * An image filter to mirror (flip) the image horizontally.
  * 
@@ -8,6 +8,7 @@ import java.awt.Color;
  */
 public class WarholFilter extends Filter
 {
+    private ImagePanel imagePanel;
     /**
      * Constructor for objects of class WarholFilter.
      * @param name The name of the filter.
@@ -43,7 +44,15 @@ public class WarholFilter extends Filter
         //top left
         for(int y = 0; y < height; y+=2) {
                 for(int x = 0; x < width; x+=2) {
+                    //top left
                     image.setPixel(x/2, y/2, image.getPixel(x, y));
+                    //top right
+                    image.setPixel(trWidth+(x/2), y/2, image.getPixel(x, y));
+                    
+                    //bottom right
+                    image.setPixel(trWidth+(x/2), brHeight+(y/2), image.getPixel(x, y));
+                    //bottom left
+                    image.setPixel(x/2, brHeight+(y/2), image.getPixel(x, y));
                 }
         }
         
@@ -59,7 +68,8 @@ public class WarholFilter extends Filter
                 // image.setPixel(x, y, image.getPixel(width - 1 - x, y));
                 // image.setPixel(width - 1 - x, y, left);
             // }
-        // }
-        
+        // image = newImage;
+        // imagePanel.setImage(image);
     }
+    
 }
